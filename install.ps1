@@ -66,7 +66,7 @@ if ($path_version.StartsWith("v")) {
 
 $duckdb_arch = ''
 $arch = (Get-CimInstance Win32_operatingsystem).OSArchitecture
-if ($arch -eq '64-bit') {
+if ($arch -match '^64[\s-]*bits?$') {
     $duckdb_arch = 'windows-amd64'
 }
 if ($arch -eq 'ARM 64-bit Processor') {
